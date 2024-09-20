@@ -1,7 +1,7 @@
 import { createLink, createParagraph } from './components';
 
 function createFooterContent() {
-  const footer = document.querySelector('footer');
+  const footerContent = document.createElement('div');
 
   const p = createParagraph('Follow the Heat!');
 
@@ -35,17 +35,24 @@ function createFooterContent() {
   btn.innerText = "Subscribe"
 
 
-  footer.appendChild(p);
-  footer.appendChild(socialLinks);
+  footerContent.appendChild(p);
+  footerContent.appendChild(socialLinks);
   socialLinks.appendChild(facebook);
   socialLinks.appendChild(instagram);
   socialLinks.appendChild(X);
-  footer.appendChild(form);
+  footerContent.appendChild(form);
   form.appendChild(label);
   form.appendChild(input);
   form.appendChild(btn);
 
-  return footer;
+  return footerContent;
 }
 
-export default createFooterContent;
+function loadFooter() {
+  const footer = document.getElementById('footer');
+  footer.appendChild(createFooterContent());
+  return footer;
+
+}
+
+export default loadFooter;

@@ -48,7 +48,7 @@ function createHome() {
 }
 
 function loadHome() {
-  const main = document.getElementById('main');
+  const main = document.querySelector('main');
   main.textContent = '';
   main.appendChild(createHome());
 }

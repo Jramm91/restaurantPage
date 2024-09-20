@@ -1,79 +1,41 @@
 import './styles.css';
-import Logo from './logo.png';
 
-import { createHTag, createParagraph } from './components';
+import loadFooter from './footer';
+import loadHeader from './header';
 import loadHome from './home';
-import createFooterContent from './footer';
 
 function createHeader() {
   const header = document.createElement('header');
-  const headerTitle = createHTag('h1', 'Hanguk Hot Chicken');
-  header.appendChild(headerTitle);
-  header.appendChild(createParagraph('Bold Heat, Korean Street Flavors'));
-  header.appendChild(createNav());
-
+  header.classList.add('header');
+  header.setAttribute('id', 'header');
   return header;
-}
-
-function createNav() {
-  const nav = document.createElement('nav');
-  
-  const navLogo = new Image();
-  navLogo.src = Logo;
-  navLogo.alt = "Chicken with flames, red background."
-
-  const navBtnsContainer = document.createElement('div');
-  navBtnsContainer.classList.add('nav-btns-container');
-
-  const homeBtn = document.createElement('button');
-  homeBtn.classList.add('nav-btns');
-  homeBtn.innerText = 'Home';
-  const aboutBtn = document.createElement('button');
-  aboutBtn.classList.add('nav-btns');
-  aboutBtn.innerText = 'About';
-  const menuBtn = document.createElement('button');
-  menuBtn.classList.add('nav-btns');
-  menuBtn.innerText = 'Menu';
-  const findUsBtn = document.createElement('button');
-  findUsBtn.classList.add('nav-btns');
-  findUsBtn.innerText = 'Find Us';
-  const contactBtn = document.createElement('button');
-  contactBtn.classList.add('nav-btns');
-  contactBtn.innerText = 'Contact';
-
-  nav.appendChild(navLogo);
-  nav.appendChild(navBtnsContainer);
-  navBtnsContainer.appendChild(homeBtn);
-  navBtnsContainer.appendChild(aboutBtn);
-  navBtnsContainer.appendChild(menuBtn);
-  navBtnsContainer.appendChild(findUsBtn);
-  navBtnsContainer.appendChild(contactBtn);
-
-  return nav;
 }
 
 function createMain() {
   const main = document.createElement('main');
-  main.classList.add('main');
   main.setAttribute('id', 'main');
   return main;
 }
 
 function createFooter() {
   const footer = document.createElement('footer');
+  footer.setAttribute('id', 'footer');
   return footer;
 }
 
 function loadWebsite() {
-  const body = document.querySelector('body');
   const content = document.getElementById('content');
+  const header = createHeader();
+  const main = createMain();
+  const footer = createFooter();
 
-  body.appendChild(createHeader());
-  main.appendChild(createMain());
-  body.appendChild(createFooter());
+  content.appendChild(header);
+  content.appendChild(main);
+  content.appendChild(footer);
 
+  loadHeader();
   loadHome();
-  createFooterContent();
+  loadFooter();
 }
 
 loadWebsite();
