@@ -11,9 +11,12 @@ const stylesHandler = 'style-loader';
 
 
 const config = {
+    mode: "development",
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+      filename: "main.js",
+      path: path.resolve(__dirname, 'dist'),
+      clean: true,
     },
     devServer: {
         open: true,
@@ -21,7 +24,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: './src/template.html',
         }),
 
         // Add your plugins here
@@ -38,8 +41,12 @@ const config = {
                 use: [stylesHandler,'css-loader'],
             },
             {
+              test: /\.html$/i,
+              loader: "html-loader",
+            }
+            {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset',
+                type: 'asset/resource',
             },
 
             // Add your rules for custom modules here
