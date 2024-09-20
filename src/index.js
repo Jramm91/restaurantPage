@@ -3,6 +3,7 @@ import Logo from './logo.png';
 
 import { createHTag, createParagraph } from './components';
 import loadHome from './home';
+import createFooterContent from './footer';
 
 function createHeader() {
   const header = document.createElement('header');
@@ -58,13 +59,21 @@ function createMain() {
   return main;
 }
 
+function createFooter() {
+  const footer = document.createElement('footer');
+  return footer;
+}
+
 function loadWebsite() {
+  const body = document.querySelector('body');
   const content = document.getElementById('content');
 
-  content.appendChild(createHeader());
-  content.appendChild(createMain());
+  body.appendChild(createHeader());
+  main.appendChild(createMain());
+  body.appendChild(createFooter());
 
   loadHome();
+  createFooterContent();
 }
 
 loadWebsite();
