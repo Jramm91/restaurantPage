@@ -49,7 +49,7 @@ function createFooterContent() {
 }
 
 function loadFooter() {
-  const footer = document.getElementById('footer');
+  const footer = document.querySelector('footer');
   footer.appendChild(createFooterContent());
   return footer;
 

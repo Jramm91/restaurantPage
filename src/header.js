@@ -53,7 +53,7 @@ function createNav() {
 }
 
 function loadHeader() {
-  const header = document.getElementById('header');
+  const header = document.querySelector('header');
   header.innerHTML = '';
   header.appendChild(createHeaderContent());
 
