@@ -20,7 +20,6 @@ function createFooter() {
 }
 
 function loadWebsite() {
-  const content = document.getElementById('content');
   const body = document.querySelector('body');
   const header = createHeader();
   const main = createMain();
