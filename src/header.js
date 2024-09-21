@@ -1,5 +1,6 @@
 import loadAbout from './about';
 import { createHTag, createParagraph } from './components';
+import loadContact from './contact';
 import loadFindUs from './findUs';
 import loadHome from './home';
 import Logo from './logo.png';
