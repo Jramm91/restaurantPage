@@ -1,5 +1,6 @@
 import loadAbout from './about';
 import { createHTag, createParagraph } from './components';
+import loadFindUs from './findUs';
 import loadHome from './home';
 import Logo from './logo.png';
 import loadMenu from './menu';
@@ -61,7 +62,7 @@ function createNav() {
   findUsBtn.addEventListener('click', (e) =>{
     if (e.target.classList.contains('active')) return;
     setActiveButton(findUsBtn);
-    loadFind();
+    loadFindUs();
   });
 
   const contactBtn = document.createElement('button');
